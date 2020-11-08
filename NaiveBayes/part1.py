@@ -11,10 +11,11 @@ import pandas as pd
 
 #We authenticate ourselves as having a twitter app
 #Variables that contains the user credentials to access Twitter API 
-access_token = "3ads;fkajsdfpoaisdjf;alksdjf"
+#yash
+access_token = "AAAAAAAAAAAAAAAAAAAAALgiJgEAAAAAqqSjokNC%2B64euTZXTCW10Jjhr%2Fo%3Dma4bcHATfGByA7uJb2JjXPNFbMAtKqJui5yBaNXOEgRDbyrSal"
 access_secret = "2uasdl;fajsd;flkjasd;flkajsdf;adfasdfEg"
-consumer_key = "xasdf98uoif;wqjer;kandsf"
-consumer_secret = "1asd9fp8uijl;qkwef;alksd;iX"
+consumer_key = "HXIe6V3ojIhO9zE3mLIirCJAZ"
+consumer_secret = "iUQJ8dT2rrWFdCBAwagHdmO1eGc6swSQpJjCGUDDWE4Sny6cIp"
 
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_secret)
@@ -62,7 +63,7 @@ while secondcount < total_number:
     except tweepy.TweepError:
         #catches TweepError when rate limiting occurs, sleeps, then restarts.
         #nominally 15 minnutes, make a bit longer to avoid attention.
-        print "sleeping...."
+        print ("sleeping....")
         time.sleep(60*justincase)
         user = next(users)
         
@@ -85,7 +86,7 @@ while secondcount < total_number:
 
     except UnicodeEncodeError:
         errorCount += 1
-        print "UnicodeEncodeError,errorCount ="+str(errorCount)
+        print ("UnicodeEncodeError,errorCount ="+str(errorCount))
 
 
 print("Creating dataframe:")
@@ -94,7 +95,6 @@ d = {"text": text, "id": idvalues}
 df = pd.DataFrame(data = d)
 
 df.to_csv('upset.csv', header=True, index=False, encoding='utf-8')
-
-print "completed"
+print ("completed")
 
 
